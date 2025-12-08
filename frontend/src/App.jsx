@@ -3,7 +3,7 @@ import RequirementForm from './components/RequirementForm'
 import RequirementOutput from './components/RequirementOutput'
 import './App.css'
 
-export default function App() {
+function App() {
   const [output, setOutput] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -18,7 +18,8 @@ export default function App() {
         body: JSON.stringify({ description, artifact_type: artifactType }),
       })
       if (!res.ok) throw new Error(`Server error: ${res.status}`)
-      setOutput(await res.json())
+      const data = await res.json()
+      setOutput(data)
     } catch (err) {
       setError(err.message)
     } finally {
@@ -40,3 +41,5 @@ export default function App() {
     </div>
   )
 }
+
+export default App
