@@ -1,27 +1,29 @@
-# DiscoveryAI 🚀
+# DiscoveryAI — Digital Project Discovery Platform 🚀
 
-![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![React](https://img.shields.io/badge/React-18.x-61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688)
-
-## 📋 Overview
-
-**DiscoveryAI** is an AI-powered digital product discovery platform designed to automate the early stages of software development, including requirement gathering, analysis, design modeling, and partial code generation. 
-
-Instead of manually writing requirements and documentation, users describe their idea in natural language, and DiscoveryAI uses Natural Language Processing (NLP) and AI models to transform that input into structured Software Requirements Specification (SRS) content, design artifacts, and sample backend/frontend code.
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat&logo=react&logoColor=black)](https://reactjs.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-412991?style=flat&logo=openai&logoColor=white)](https://openai.com)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)]()
 
 ---
 
-## ✨ Features
+## What It Does
 
-- **Natural Language Input**: Users can describe software ideas in free-text format
-- **Automated Requirement Extraction**: Uses NLP to extract and classify requirements
-- **Requirement Classification**: Categorizes requirements by type (functional/non-functional)
-- **Documentation Generation**: Automatically generates summaries, use case descriptions, and user stories
-- **Design Artifacts**: Generates diagrams, wireframes, and user flows
-- **Code Generation**: Produces partial backend and frontend boilerplate code
-- **Export Functionality**: Export generated requirements and documentation
+**DiscoveryAI** is an AI-powered platform that takes a plain-English description of a software idea and automatically produces a structured Software Requirements Specification (SRS), use cases, user stories, and boilerplate code. It eliminates hours of manual requirements writing by leveraging GPT-4 to extract, classify, and document both functional and non-functional requirements — then generates matching frontend and backend scaffolding.
+
+> Built as a capstone project demonstrating end-to-end AI-assisted software engineering.
+
+---
+
+## ✨ Key Features
+
+- **Natural Language → SRS**: Describe your app idea; get a full requirements document
+- **Requirement Classification**: Auto-categorizes functional vs. non-functional requirements
+- **Code Generation**: Produces FastAPI backend + React frontend boilerplate
+- **Export**: Download generated docs as PDF/DOCX
+- **Design Artifacts**: Suggests user flows and logical component diagrams
 
 ---
 
@@ -29,86 +31,50 @@ Instead of manually writing requirements and documentation, users describe their
 
 | Layer | Technology |
 |-------|------------|
-| **Frontend** | React.js 18.x, Vite |
-| **Backend** | FastAPI (Python) |
-| **AI/NLP** | OpenAI GPT Models |
-| **Database** | MongoDB |
-| **API** | REST |
+| Frontend | React 18, Vite, JSX |
+| Backend | FastAPI (Python 3.9+) |
+| AI/NLP | OpenAI GPT-4 API |
+| Database | MongoDB |
+| API Style | REST |
 
 ---
 
-## 📁 Project Structure
-
-```
-Adv Software/
-├── adv final project.pdf          # Project documentation report
-├── backend main-1.py               # FastAPI backend application
-├── Frontend App-1.jsx             # React frontend component
-└── README.md                       # This file
-```
-
----
-
-## 🚀 Getting Started
+## 🚀 How to Run Locally
 
 ### Prerequisites
 
 - Python 3.9+
 - Node.js 16+
-- MongoDB (local or cloud instance)
-- OpenAI API Key
+- MongoDB running locally or a MongoDB Atlas URI
+- An [OpenAI API key](https://platform.openai.com/api-keys)
 
-### Backend Setup
+### 1. Clone the repo
 
-1. Navigate to the backend directory:
 ```bash
-cd backend
+git clone https://github.com/guduruharshita/Digital-Project-Discovery-AI-Platform.git
+cd Digital-Project-Discovery-AI-Platform
 ```
 
-2. Create a virtual environment:
+### 2. Backend setup
+
 ```bash
 python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install fastapi uvicorn pydantic pymongo openai python-dotenv
+echo "OPENAI_API_KEY=your_key_here" > .env
+uvicorn "backend main-1":app --reload
 ```
 
-3. Activate the virtual environment:
-```bash
-# Windows
-venv\Scripts\activate
+Backend runs at `http://localhost:8000`
 
-# Linux/Mac
-source venv/bin/activate
-```
+### 3. Frontend setup
 
-4. Install dependencies:
-```bash
-pip install fastapi pydantic uvicorn
-```
-
-5. Run the backend server:
-```bash
-python backend main-1.py
-```
-
-The backend will be available at `http://localhost:8000`
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd Frontend
-```
-
-2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Start the development server:
-```bash
 npm run dev
 ```
 
-The frontend will be available at `http://localhost:5173`
+Frontend runs at `http://localhost:5173`
 
 ---
 
@@ -116,85 +82,41 @@ The frontend will be available at `http://localhost:5173`
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/` | Health check endpoint |
-| `POST` | `/generate-requirements` | Generate requirements from user input |
-| `GET` | `/projects/{id}` | Get project by ID |
+| `GET` | `/` | Health check |
+| `POST` | `/generate-requirements` | Generate SRS from text input |
+| `GET` | `/projects/{id}` | Fetch a saved project |
 | `POST` | `/export` | Export documentation |
 
 ---
 
-## 📖 Usage
-
-1. **Enter Project Description**: User provides a high-level description of their software idea
-2. **AI Processing**: System extracts requirements using NLP
-3. **Review Requirements**: User can refine, accept, or edit generated content
-4. **Generate Artifacts**: System suggests diagrams and logical groupings
-5. **Export**: User exports documentation (SRS, PDF, DOCX)
-
----
-
-## 📱 User Flow
+## 📁 Project Structure
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   User      │────▶│   System    │────▶│   Review    │
-│   Input     │     │   AI        │     │   Output    │
-└─────────────┘     └─────────────┘     └─────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────┐     ┌─────────────┐
-                    │   Export    │◀────│   Refine    │
-                    │   Docs      │     │   Content   │
-                    └─────────────┘     └─────────────┘
+Digital-Project-Discovery-AI-Platform/
+├── backend main-1.py       # FastAPI application
+├── Frontend App-1.jsx      # React frontend component
+├── adv final project.pdf   # Full project documentation
+└── README.md
 ```
 
 ---
 
-## 👥 Team Members
+## 👥 Team
 
-- **Sowjanya Kamtam** - 000798156
-- **Harsha Guduru** - 000797805  
-- **Darshan Joshi** - 000797697
-
----
-
-## 📄 Documentation
-
-For detailed project documentation, please refer to [adv final project.pdf](./adv%20final%20project.pdf)
+- Sowjanya Kamtam
+- Harshita Guduru
+- Darshan Joshi
 
 ---
 
 ## ⚠️ Limitations
 
-- Generated code requires human review
-- Edge cases, security, and validations must be manually added
-- Depends on OpenAI API for NLP capabilities
+- Generated code requires human review before production use
+- Requires an active OpenAI API key (usage costs apply)
+- Security, edge-case handling, and validation must be added manually
 
 ---
 
-## 🤝 Contributing
+## 📄 License
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is for educational purposes.
-
----
-
-## 🙏 Acknowledgments
-
--感谢 Professor 的指导
--感谢团队成员的辛勤工作
--感谢开源社区提供的工具和框架
-
----
-
-*Built with ❤️ using FastAPI & React*
-
+Educational use. See [adv final project.pdf](./adv%20final%20project.pdf) for full documentation.
