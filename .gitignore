@@ -1,8 +1,33 @@
+# Python
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*.pyo
+.venv/
 venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Node
 node_modules/
 dist/
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# OS
 .DS_Store
+Thumbs.db
 *.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
