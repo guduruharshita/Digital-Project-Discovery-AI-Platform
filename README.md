@@ -8,7 +8,6 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat&logo=postgresql&logoColor=white)](https://postgresql.org)
 [![Tests](https://img.shields.io/badge/Tests-6%20passing-success?logo=pytest)](backend/tests/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker&logoColor=white)](https://docker.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
 
 > Transform a plain-English product description into structured SRS documents, agile user stories, or code scaffolding in under 5 seconds — powered by OpenAI GPT-4o with full generation history persisted to PostgreSQL.
 
