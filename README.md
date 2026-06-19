@@ -6,10 +6,15 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)](https://reactjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat&logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Tests](https://img.shields.io/badge/Tests-6%20passing-success?logo=pytest)](backend/tests/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=flat&logo=docker&logoColor=white)](https://docker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
 
 > Transform a plain-English product description into structured SRS documents, agile user stories, or code scaffolding in under 5 seconds — powered by OpenAI GPT-4o with full generation history persisted to PostgreSQL.
+
+## Why This Exists
+
+Product teams and developers spend hours writing SRS documents, user stories, and boilerplate code structure before a project starts. The blank-page problem is real — a junior developer can spend half a sprint writing requirements that a more experienced colleague would draft in 20 minutes. DiscoveryAI compresses that to under 5 seconds by routing a plain-English description through a structured GPT-4o prompt that outputs numbered, categorized requirements in a predictable JSON schema. The generation history stored in PostgreSQL creates an audit trail useful for retrospectives and requirements tracing.
 
 ---
 
@@ -526,6 +531,14 @@ Railway auto-detects the `docker-compose.yml` and deploys all three services (po
 | `DATABASE_URL` | No | `None` | PostgreSQL connection URI — omit for stateless mode |
 
 ---
+
+## Future Improvements
+
+- **Streaming responses** — Replace the single HTTP response with Server-Sent Events so users see tokens render in real time, reducing perceived latency from ~3s to instant
+- **Export formats** — One-click export to PDF, Confluence wiki markup, and Jira CSV for direct import into project management tools
+- **User accounts** — JWT-authenticated sessions with per-user generation history and saved artifact collections
+- **Fine-tuned model** — Fine-tune GPT-4o mini on validated SRS examples to reduce cost per generation by ~10×
+- **Artifact versioning** — Track edits to generated artifacts so teams can compare requirement iterations over time
 
 ## Skills Demonstrated
 
