@@ -13,10 +13,7 @@
 
 ---
 
-## Preview
-
-> **Add a screen recording or GIF here.**
-> Run `npm run dev` + `uvicorn app.main:app --reload`, record a short screen capture, and drop it in `docs/demo.gif`.
+## UI
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -552,4 +549,4 @@ Railway auto-detects the `docker-compose.yml` and deploys all three services (po
 
 MIT © [Harshita Guduru](https://github.com/guduruharshita)
 
-**Harshita Guduru** — [GitHub](https://github.com/guduruharshita) · [LinkedIn](https://linkedin.com/in/harshita-guduru) · [Email](mailto:guduruharshita2001@gmail.com)
+**Harshita Guduru** — [GitHub](https://github.com/guduruharshita) · [LinkedIn](https://linkedin.com/in/guduruharshita) · [Email](mailto:guduruharshita2001@gmail.com)
